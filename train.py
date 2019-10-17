@@ -4,7 +4,7 @@ import torchvision
 import torch.nn as nn
 import torch.optim as optim
 from torchvision import transforms,datasets
-from lenet import LeNet
+from mynet import MyNet
 
 trainsforms = transforms.Compose([transforms.RandomHorizontalFlip(0.5),transforms.ToTensor(),transforms.Normalize((0.1307,),(0.3081,))])
 train_dataset = torchvision.datasets.FashionMNIST(root = './fashionMNIST/data',train = True, download = False, transform =trainsforms)
@@ -21,7 +21,7 @@ epoch_size = 20
 lr = 0.001
 device = torch.device('cuda')
 
-net = LeNet(1).to(device)
+net = MyNet(1).to(device)
 
 optimizer = optim.Adam(net.parameters(),lr = lr)
 scheduler = optim.lr_scheduler.MultiStepLR(optimizer, milestones = [14,19], gamma = 0.1,last_epoch =-1)
