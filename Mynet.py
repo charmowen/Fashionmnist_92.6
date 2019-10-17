@@ -1,9 +1,9 @@
 import torch.nn as nn
 import math
 
-class LeNet(nn.Module):
+class MyNet(nn.Module):
     def __init__(self, input_channel):
-        super(LeNet, self).__init__()
+        super(MyNet, self).__init__()
         self.conv1 = nn.Sequential(nn.Conv2d(input_channel, 6, 5, 1, 2),
                                    nn.ReLU(inplace = True),
                                    #nn.BatchNorm2d(6),
